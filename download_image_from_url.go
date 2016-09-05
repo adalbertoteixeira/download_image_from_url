@@ -1,6 +1,3 @@
-// go install cdigital.pt/download_image_from_url
-// ENV_VARS_FILE="/Users/adalbertoteixeira/Documents/dev/apps/spidertattoos/spidertattoos_api/.rbenv-vars" $GOPATH/bin/download_image_from_url
-
 package main
 
 import (
