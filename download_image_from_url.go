@@ -121,7 +121,7 @@ func download_image(url string, code string, id int) {
   large_directory := createDirectory(code, "large")
   large_directory_string := large_directory + code + ".jpg"
   
-  cmd := exec.Command("/usr/local/bin/convert", download_string, "-resize", "1000x1000", "-gravity", "center", "-extent", "1000x1000", large_directory_string)
+  cmd := exec.Command(os.Getenv("IMAGEMAGICK_PATH"), download_string, "-resize", "1000x1000", "-gravity", "center", "-extent", "1000x1000", large_directory_string)
   cmdErr := cmd.Run()
   if cmdErr != nil {
     log.Fatal(cmdErr)
@@ -130,7 +130,7 @@ func download_image(url string, code string, id int) {
   medium_directory := createDirectory(code, "medium")
   medium_directory_string := medium_directory + code + ".jpg"
   
-  cmd = exec.Command("/usr/local/bin/convert", download_string, "-resize", "600x600", "-gravity", "center", "-extent", "600x600", medium_directory_string)
+  cmd = exec.Command(os.Getenv("IMAGEMAGICK_PATH"), download_string, "-resize", "600x600", "-gravity", "center", "-extent", "600x600", medium_directory_string)
   cmdErr = cmd.Run()
   if cmdErr != nil {
     log.Fatal(cmdErr)
@@ -139,7 +139,7 @@ func download_image(url string, code string, id int) {
   thumb_directory := createDirectory(code, "thumb")
   thumb_directory_string := thumb_directory + code + ".jpg"
   
-  cmd = exec.Command("/usr/local/bin/convert", download_string, "-resize", "200x200", "-gravity", "center", "-extent", "200x200", thumb_directory_string)
+  cmd = exec.Command(os.Getenv("IMAGEMAGICK_PATH"), download_string, "-resize", "200x200", "-gravity", "center", "-extent", "200x200", thumb_directory_string)
   cmdErr = cmd.Run()
   if cmdErr != nil {
     log.Fatal(cmdErr)
